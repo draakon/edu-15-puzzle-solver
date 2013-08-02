@@ -1,0 +1,51 @@
+<HTML>
+<head>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+<title>15-mängu lahendaja</title>
+</head>
+<BODY>
+<h1>15-mängu lahendaja</h1>
+<p><strong>Autor: </strong>Kristjan Kaitsa</p>
+<h3>Algoritmi kirjeldus</h3>
+<p>Kasutasin kaalutud A* otsingut. </p>
+<p>Hinnangufunktsioon: <strong>f(n)</strong> = <strong>g*(n)</strong> + 3 * <strong>h*(n).</strong></p>
+<p><strong>g*(n) </strong>- vähim käikude arv, et jõuda algseisust antud tippu.<br>
+  <strong>h*(n)</strong> - vähim teoreetiline sammude arv antud tipust lõppseisu.<br>
+<strong>h*(n)</strong> arvutatakse liites kokku kõigi numbrite (va. tühi ruut) kaugused (manhattan distance) nende lõppseisu kohast.</p>
+<p>Kuna korrutan <strong>h*(n) </strong>kolmega läbi, siis algoritm ei ole enam lubav, kuna ei pruugi leida kõige optimaalsemat teed.<br>
+  See-eest leitakse lahendus üldjuhul võrdlemisi kiiresti.
+</p>
+<p>Algoritmikirjeldus sammudena:</p>
+<ol>
+  <li>Lisada algseis avatud nimekirja.</li>
+  <li>
+    <ol>
+      <li>Võtta avatud nimekirjast kõige parema heuristilise hinnanguga tipp. </li>
+      <li>Kui avatud nimekiri on tühi, siis järelikult lahendust ei leidu. Väljun tsüklist.  </li>
+    </ol>
+  </li>
+  <li>Kontrollida, kas võetud tipp on lõpptipp - kui on, siis väljuda tsüklist ja liikuda tipust tagasi algusesse ja koostada sammude nimekiri.</li>
+  <li>Lisada tipp suletud nimekirja.</li>
+  <li>Genereerida tipu vahetud järglased, liigutades tühja ruutu kuni kolmes suunas (tagasi ei liiguta): sooritada punktid 6-8 kõigi vahetute järglaste puhul.</li>
+  <li>Kui järglane on suletud nimekirjas, siis jätta vahele.</li>
+  <li>Kui järglane on avatud nimekirjas, siis kontrollida, kas antud juhul on tema heuristiline hinnang parem.  Vajadusel orienteerida ümber viit.</li>
+  <li>Lisada järglane avatud nimekirja.</li>
+  <li>Minna punkti 2.</li>
+</ol>
+<h3>Kasutusjuhend/Õpetus</h3>
+<p>NB! Tekitatakse fail 'lahendus.txt', kus on ära toodud kõik vahepealsed lauaseisud, konsooli kuvatakse vaid käigud.<br>
+  Õpetus on interaktiivse flashi kujul:</p>
+<p>
+  <OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="968" HEIGHT="637" CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=7,0,0,0">
+  <PARAM NAME=movie VALUE="opetus.swf">
+  <PARAM NAME=play VALUE=true>
+  <PARAM NAME=loop VALUE=false>
+  <PARAM NAME=wmode VALUE=transparent>
+  <PARAM NAME=quality VALUE=low>
+  <EMBED SRC="opetus.swf" WIDTH=968 HEIGHT=637 quality=low loop=false wmode=transparent TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+  </EMBED>
+</OBJECT>
+</p>
+<SCRIPT src='opetus.js'></script>
+</BODY>
+</HTML>
